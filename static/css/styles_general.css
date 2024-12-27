@@ -1,0 +1,97 @@
+/* General Styles */
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: linear-gradient(135deg, #f3f6fd, #ffffff);
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    max-width: 1400px;
+    width: 95%;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+h1, h2, h3 {
+    color: #222;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p, label {
+    font-size: 1rem;
+}
+
+/* Table Styles */
+.table {
+    margin: 0 auto;
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #e9ecef;
+    padding: 14px;
+    font-size: 1rem;
+    word-wrap: break-word;
+}
+
+.table th {
+    background: #f7f9fc;
+    font-weight: 700;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.table td {
+    background-color: #ffffff;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f5fb;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.text-muted {
+    color: #6c757d;
+}
+
+.text-danger {
+    color: #dc3545;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,847 @@
+@import "styles_general.css";
+@import "styles_components.css";
+@import "styles_responsive.css";
+
+/* Muscle group related styles */
+.muscle-group-primary,
+.muscle-group-secondary,
+.muscle-group-tertiary,
+.advanced-isolated-muscles {
+    /* ... styles ... */
+}
+
+/* Filter section styles */
+#isolated_muscles_filter {
+    /* ... styles ... */
+}
+
+/* Table column styles */
+.advanced-isolated-muscles-column {
+    /* ... styles ... */
+}
+
+/* Form label styles */
+label[for="isolated_muscles_filter"] {
+    /* ... styles ... */
+}
+
+/* Welcome Page Styles */
+.welcome-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.hero-section {
+    background: linear-gradient(45deg, #2c3e50, #3498db);
+    color: white;
+    padding: 4rem 2rem;
+    border-radius: 1rem;
+    margin-bottom: 3rem;
+}
+
+/* Feature Cards Typography */
+.feature-card {
+    transition: transform 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    height: 100%;  /* Ensure all cards have same height */
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Card Title Styling */
+.card-title {
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Card Text Styling */
+.card-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Card List Styling */
+.feature-card ul {
+    padding-left: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.feature-card li {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+    color: #495057;
+}
+
+/* Card Button Styling */
+.feature-card .btn {
+    margin-top: 1rem;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+/* Button Group Styling */
+.feature-card .btn-group {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.feature-card .btn-group .btn {
+    flex: 1;
+    margin-top: 0;
+}
+
+.science-section {
+    background: #f8f9fa;
+    padding: 3rem;
+    border-radius: 1rem;
+}
+
+/* Card Body Padding */
+.feature-card .card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Push buttons to bottom */
+.feature-card .card-text {
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+
+/* Chat Styles */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.user-message,
+.ai-message {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    max-width: 80%;
+}
+
+.user-message {
+    background: #007bff;
+    color: white;
+    margin-left: auto;
+}
+
+.ai-message {
+    background: #e9ecef;
+    color: #212529;
+    margin-right: auto;
+}
+
+.chat-input {
+    padding: 1rem 0;
+}
+
+/* Enhanced Routine Dropdown Styling */
+.uniform-dropdown {
+    min-width: 280px;
+    max-width: 100%;
+    font-size: 0.95rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+}
+
+/* Environment Groups */
+.uniform-dropdown optgroup {
+    font-weight: bold;
+    padding: 10px 0;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Environment Colors */
+.uniform-dropdown optgroup[data-environment="gym"] {
+    background-color: #e3f2fd;
+    color: #1565c0;
+}
+
+.uniform-dropdown optgroup[data-environment="home-workout"] {
+    background-color: #f3e5f5;
+    color: #6a1b9a;
+}
+
+/* Category Colors */
+.category-split-programs {
+    color: #5d4037 !important;
+    background-color: #efebe9 !important;
+}
+
+.category-basic-splits {
+    color: #455a64 !important;
+    background-color: #eceff1 !important;
+}
+
+/* Program Type Colors and their children */
+/* Full Body - Green Theme */
+.program-full-body,
+.program-full-body ~ .routine-option {
+    color: #2e7d32 !important;
+    background-color: #e8f5e9 !important;
+}
+
+/* 4 Week Split - Orange Theme */
+.program-4-week-split,
+.program-4-week-split ~ .routine-option {
+    color: #ef6c00 !important;
+    background-color: #fff3e0 !important;
+}
+
+/* Push Pull Legs - Indigo Theme */
+.program-push-pull-legs,
+.program-push-pull-legs ~ .routine-option {
+    color: #303f9f !important;
+    background-color: #e8eaf6 !important;
+}
+
+/* Ensure Push Pull Legs routines inherit the correct color */
+.program-push-pull-legs ~ .routine-option[data-program="Push, Pull, Legs"] {
+    color: #303f9f !important;
+    background-color: #e8eaf6 !important;
+}
+
+/* 2 Days Split - Blue Theme */
+.program-2-days-split,
+.program-2-days-split ~ .routine-option {
+    color: #0277bd !important;
+    background-color: #e1f5fe !important;
+}
+
+/* Ensure 2 Days Split routines inherit the correct color */
+.program-2-days-split ~ .routine-option[data-program="2 Days Split"] {
+    color: #0277bd !important;
+    background-color: #e1f5fe !important;
+}
+
+/* Upper Lower - Red Theme */
+.program-upper-lower,
+.program-upper-lower ~ .routine-option {
+    color: #c62828 !important;
+    background-color: #ffebee !important;
+}
+
+/* 3 Days Split - Teal Theme */
+.program-3-days-split,
+.program-3-days-split ~ .routine-option {
+    color: #00695c !important;
+    background-color: #e0f2f1 !important;
+}
+
+/* Routine Options - Base Styles */
+.routine-option {
+    padding: 4px 36px;
+    transition: background-color 0.2s;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.routine-option.nested {
+    padding-left: 48px;
+}
+
+/* Hover and Selection States */
+.uniform-dropdown option:not([disabled]):hover {
+    filter: brightness(0.95);
+    cursor: pointer;
+}
+
+.uniform-dropdown option:checked {
+    background-color: #1976d2 !important;
+    color: white !important;
+}
+
+/* Visual hierarchy improvements */
+.category-header {
+    font-size: 1.05rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 10px 12px !important;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.program-header {
+    font-weight: 600;
+    padding: 8px 24px !important;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Indentation and spacing */
+.uniform-dropdown option {
+    margin: 2px 0;
+}
+
+/* Visual Separators */
+.uniform-dropdown optgroup + optgroup {
+    border-top: 2px solid #dee2e6;
+}
+
+/* Enhanced Tooltips */
+[title] {
+    position: relative;
+}
+
+[title]:hover::before {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Filter Dropdown Styling */
+.filter-dropdown {
+    background-color: #e3f2fd !important;  /* Light blue background */
+    border-color: #90caf9 !important;      /* Slightly darker blue border */
+}
+
+.filter-dropdown:focus {
+    background-color: #fff !important;      /* White background when focused */
+    border-color: #2196f3 !important;      /* Primary blue when focused */
+    box-shadow: 0 0 0 0.2rem rgba(33, 150, 243, 0.25) !important;
+}
+
+/* Routine dropdown should have different styling */
+.routine-dropdown {
+    background-color: #fdf5e6 !important;  /* Light cream background */
+    border-color: #ced4da !important;      /* Default border color */
+}
+
+.routine-dropdown:focus,
+.routine-dropdown.clicked {
+    background-color: #fff !important;      /* White background when focused */
+    border-color: #80bdff !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+}
+
+/* Exercise Dropdown Styling */
+.exercise-dropdown {
+    background-color: #f5f5f5 !important;  /* Light gray background */
+    border-color: #ddd !important;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Glow effect for exercise dropdown when filters are applied */
+.exercise-dropdown.filter-applied {
+    background-color: #fff !important;
+    box-shadow: 0 0 15px rgba(33, 150, 243, 0.5) !important;
+    border-color: #2196f3 !important;
+    animation: glowPulse 2s ease-in-out;
+}
+
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 15px rgba(33, 150, 243, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(33, 150, 243, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(33, 150, 243, 0.5);
+    }
+}
+
+/* Exercise dropdown focus state */
+.exercise-dropdown:focus {
+    background-color: #fff !important;
+    border-color: #80bdff !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+}
+
+/* Filter Button Group Styling */
+.btn-group {
+    gap: 8px;
+}
+
+#clear-filters-btn {
+    background-color: #ffc107;  /* Mustard background */
+    border-color: #e0a800;      /* Slightly darker mustard for border */
+    color: #000;                /* Black text for better contrast */
+    transition: all 0.2s ease-in-out;
+}
+
+#clear-filters-btn:hover {
+    background-color: #e0a800;  /* Darker mustard on hover */
+    border-color: #d39e00;      /* Even darker border on hover */
+    color: #000;
+}
+
+#clear-filters-btn:active {
+    background-color: #d39e00 !important;  /* Darkest shade when clicked */
+    border-color: #ba8b00 !important;
+}
+
+#clear-filters-btn i {
+    margin-right: 4px;
+}
+
+/* Export Buttons Styling */
+.btn-export-excel {
+    background-color: #f48fb1 !important;  /* Light fuchsia */
+    border-color: #f06292 !important;      /* Slightly darker fuchsia for border */
+    color: #000 !important;                /* Black text for better contrast */
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-export-excel:hover {
+    background-color: #f06292 !important;  /* Darker fuchsia on hover */
+    border-color: #ec407a !important;      /* Even darker border on hover */
+    color: #000 !important;
+}
+
+.btn-export-excel:active {
+    background-color: #ec407a !important;  /* Darkest shade when clicked */
+    border-color: #e91e63 !important;
+}
+
+/* Filter Section Styling */
+.filters-section {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    position: relative;
+}
+
+.filters-title {
+    position: absolute;
+    top: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid #dee2e6;
+    border-radius: 25px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2c3e50;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    z-index: 1;
+}
+
+/* Adjust spacing for filter dropdowns */
+.filters.dropdown-group {
+    margin-top: 0.5rem;
+}
+
+/* Enhance form layout */
+#filters-form {
+    margin-top: 1rem;
+}
+
+/* Add subtle hover effect to the frame */
+.filters-section:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Page Header Styling */
+.page-header {
+    margin-bottom: 2.5rem;
+    padding: 1rem 0;
+    position: relative;
+}
+
+.page-header h1 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.header-underline {
+    height: 4px;
+    width: 80px;
+    background: linear-gradient(to right, #3498db, #2c3e50);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* Table Header Styling */
+.table-header {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.table-header h2 {
+    color: #34495e;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.table-header-underline {
+    height: 3px;
+    width: 60px;
+    background: linear-gradient(to right, #95a5a6, #7f8c8d);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* Enhanced Table Styling */
+.table-workout {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.table-workout thead {
+    background-color: #f8f9fa;
+}
+
+.table-workout .table-header-row th {
+    background-color: #e9ecef;
+    color: #495057;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    padding: 1rem;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table-workout tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table-workout tbody tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.table-workout tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.table-workout tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+.table-workout td {
+    padding: 0.75rem 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* Table Container Enhancement */
+.workout-plan.table-container {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Unified Frames Styling */
+.unified-frames-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+/* Split Layout Styling */
+.split-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.input-frame,
+.action-frame {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.frame-title {
+    position: absolute;
+    top: -0.6rem;
+    left: 1.5rem;
+    background-color: #fff;
+    padding: 0 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Input Frame Specific Styling */
+.input-frame {
+    background-color: #f8f9fa;
+    padding: 1rem;
+}
+
+/* Horizontal Input Layout */
+.input-frame .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0.75rem;
+    justify-content: flex-start;
+}
+
+.input-frame .col-12 {
+    flex: 0 0 auto;
+    width: auto;
+    padding: 0;
+    margin: 0;
+}
+
+.input-frame .form-control {
+    background-color: #fff;
+    border-color: #ced4da;
+    transition: all 0.2s ease-in-out;
+    width: 120px;
+    height: 32px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.9rem;
+}
+
+.input-frame .form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+}
+
+/* Horizontal Layout Container */
+.horizontal-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Action Buttons Group */
+.action-buttons-group {
+    display: flex;
+    gap: 1rem;
+    flex: 2;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* Ensure all buttons and button groups are aligned */
+.action-buttons-group > * {
+    margin: 0;  /* Remove any default margins */
+}
+
+/* Remove the col-auto class styling effects */
+.action-buttons-group .col-auto {
+    padding: 0;
+    margin: 0;
+    width: auto;
+}
+
+/* Input Fields Group */
+.input-fields-group {
+    display: flex;
+    gap: 1rem;
+    flex: 3;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.input-fields-group .input-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.input-fields-group label {
+    white-space: nowrap;
+    margin: 0;
+}
+
+/* Action Frame Specific Styling */
+.action-frame {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.action-frame .d-flex {
+    padding: 0;
+    gap: 1rem;
+    align-items: center;
+}
+
+.action-frame .btn,
+.action-frame .btn-group {
+    width: auto;
+}
+
+.action-frame .btn-group {
+    min-width: 200px;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.action-frame .btn-group .btn {
+    flex: 1;
+    white-space: nowrap;
+}
+
+/* Standardized Button Styling */
+.action-buttons-group .btn,
+.action-buttons-group .btn-group .btn {
+    height: 38px;
+    padding: 0 1rem;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Icon styling within buttons */
+.action-buttons-group .btn i {
+    font-size: 0.85rem;
+    margin-right: 0.5rem;
+}
+
+/* Button group styling */
+.action-buttons-group .btn-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Individual button types */
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.btn-outline-secondary {
+    background-color: #fff;
+    border-color: #6c757d;
+    color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: #fff;
+}
+
+.btn-export-excel {
+    background-color: #f48fb1;
+    border-color: #f06292;
+    color: #000;
+}
+
+.btn-export-excel:hover {
+    background-color: #f06292;
+    border-color: #ec407a;
+}
+
+.btn-export-log {
+    background-color: #6f42c1;
+    border-color: #6610f2;
+    color: #fff;
+}
+
+.btn-export-log:hover {
+    background-color: #6610f2;
+    border-color: #520dc2;
+}
+
+/* Add icons to export buttons */
+.btn-export-excel i,
+.btn-export-log i {
+    margin-right: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .split-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .unified-frames-container {
+        padding: 0 1rem;
+    }
+    
+    .input-frame,
+    .action-frame {
+        padding: 1rem;
+    }
+    
+    .frame-title {
+        font-size: 0.8rem;
+    }
+    
+    .action-frame .d-flex {
+        gap: 1rem !important;
+    }
+    
+    .action-frame .btn-group {
+        width: 100%;
+    }
+    
+    .action-frame .btn {
+        flex: 1;
+    }
+}

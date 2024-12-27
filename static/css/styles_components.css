@@ -1,0 +1,217 @@
+/* Navbar Styles */
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Form Styles */
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.form-label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #555;
+    text-align: left; /* Ensure labels are aligned to the left */
+}
+
+.form-group label {
+    display: block; /* Ensure label takes full width */
+    text-align: left; /* Align label text to the left */
+    margin-bottom: 0.5rem; /* Add spacing below label */
+}
+
+.form-select, .form-control {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fafafa;
+}
+
+.form-select:focus, .form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 8px rgba(13, 110, 253, 0.4);
+    outline: none;
+}
+
+/* Dropdown Styling */
+.filter-dropdown {
+    background-color: #e6f7ff;
+    color: #333;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.filter-dropdown:not([value]):not(:focus) {
+    background-color: #e6f7ff;
+    color: #555;
+}
+
+.filter-dropdown:focus, .filter-dropdown:active {
+    background-color: #ffffff;
+    color: #000;
+}
+
+/* Uniform Dropdown Styling */
+.uniform-dropdown {
+    width: 500px;
+    max-width: 100%;
+    min-width: 300px;
+    background-color: #e6f7ff;
+}
+
+.uniform-dropdown:focus {
+    background-color: #ffffff;
+}
+
+/* Center Buttons and Adjust Routine Dropdown */
+#add-exercise-form {
+    text-align: center; /* Center elements in the form */
+}
+
+#add-exercise-form .row.justify-content-center {
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    align-items: center;
+}
+
+/* Wide Input and Large Input Styling */
+.wide-input {
+    width: 400px;
+}
+
+.large-input {
+    flex: 1;
+    max-width: calc((100% - 1rem) / 5); /* Reduce spacing and ensure inputs distribute evenly */
+    min-width: 150px; /* Ensure minimum width */
+    margin-right: 2px; /* Reduced spacing between input fields */
+    text-align: center; /* Align text to center */
+}
+
+.small-input {
+    width: calc((100% - 1rem) / 5); /* Reduce spacing among 5 inputs */
+    min-width: 150px; /* Ensure minimum width */
+    margin-right: 1px; /* Reduced spacing between input boxes */
+    text-align: center;
+}
+
+/* Custom Row and Input Styling */
+.custom-row {
+    display: flex;
+    gap: 1px; /* Reduce spacing between inputs */
+    justify-content: flex-start; /* Align inputs to the left */
+}
+
+.custom-input {
+    flex: 1;
+    max-width: calc((100% - 2rem) / 5); /* Distribute inputs evenly */
+    margin-right: 0.5rem; /* Small spacing between inputs */
+}
+
+/* Adjust Row Gaps */
+#add-exercise-form .row {
+    --bs-gutter-x: 0.25rem; /* Reduce horizontal gap between columns */
+    --bs-gutter-y: 0.25rem; /* Reduce vertical gap between rows */
+}
+
+/* Adjust Input Box Spacing */
+#add-exercise-form .large-input,
+#add-exercise-form .small-input {
+    margin-right: 2px; /* Minimal spacing between input boxes */
+    padding: 5px; /* Reduce padding inside inputs */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    margin: 5px 10px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0056b3, #003a80);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #6c757d, #5a6268);
+    color: #ffffff;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #5a6268, #494f54);
+    transform: translateY(-2px);
+}
+
+.btn-success,
+.btn-primary {
+    margin-left: 10px;
+}
+
+/* Toast Notification Styles */
+.toast {
+    opacity: 0.95;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-size: 1rem;
+    border-radius: 12px;
+}
+
+.toast .toast-body {
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Welcome Page Styles */
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    text-align: center;
+}
+
+.welcome-container h1 {
+    font-size: 2.5rem;
+}
+
+.welcome-container p {
+    font-size: 1.25rem;
+}
+
+/* Filter component styles */
+.filter-advanced-isolated {
+    /* ... styles ... */
+}
+
+/* Table component styles */
+.table {
+    /* ... */
+}
+
+.table .advanced-isolated-cell {
+    /* ... styles ... */
+}

@@ -1,0 +1,139 @@
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .row.gx-4 .col-lg-2,
+    .row.gx-4 .col-lg-3 {
+        width: 100%; /* Stack columns vertically */
+        margin-bottom: 10px; /* Add spacing between stacked elements */
+    }
+
+    .wide-input,
+    .large-input {
+        width: 100%; /* Inputs take full width on smaller screens */
+    }
+
+    #routine {
+        width: 100%; /* Dropdown takes full width on small screens */
+    }
+}
+
+/* Specific adjustment for filters group */
+.filters.dropdown-group {
+    gap: 0.5rem; /* Reduced gap for closer alignment */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Adjust gaps in add-exercise-form */
+#add-exercise-form {
+    padding: 0;
+    margin: 0;
+}
+
+#add-exercise-form .row {
+    --bs-gutter-x: 0px; /* Remove horizontal gutter */
+    --bs-gutter-y: 0px; /* Remove vertical gutter */
+    margin: 0;
+}
+
+#add-exercise-form .custom-input input {
+    padding: 5px;
+    margin: 0;
+}
+
+/* Buttons inside row */
+.row.gx-4.gy-3 .btn {
+    width: auto; /* Maintain natural button size */
+}
+
+/* Adjust Add Exercise button placement */
+.btn-success {
+    display: block;
+    margin-top: 10px; /* Add spacing above button */
+}
+
+/* Welcome Page Responsive Styles */
+@media (min-width: 1440px) {
+    .welcome-container h1 {
+        font-size: 3rem; /* Larger font size for headings */
+    }
+
+    .welcome-container p {
+        font-size: 1.5rem; /* Adjust paragraph size */
+    }
+}
+
+@media (min-width: 2560px) {
+    .welcome-container h1 {
+        font-size: 4rem; /* Further increase heading size */
+    }
+
+    .welcome-container p {
+        font-size: 2rem; /* Further increase paragraph size */
+    }
+}
+
+/* Larger Screen Adjustments */
+@media (max-width: 1920px) {
+    .container {
+        max-width: 90%;
+    }
+
+    .table-container {
+        max-width: 95%;
+    }
+}
+
+@media (min-width: 1921px) and (max-width: 2560px) {
+    .container {
+        max-width: 85%;
+    }
+
+    .table-container {
+        max-width: 100%;
+    }
+
+    .form-container {
+        gap: 0.5rem; /* Reduced gap for closer alignment */
+    }
+
+    .small-input,
+    .large-input {
+        width: calc((100% - 1rem) / 5); /* Ensure even distribution of inputs */
+        margin-right: 2px; /* Minimal spacing between inputs */
+        min-width: 150px; /* Ensure consistent minimum size */
+    }
+
+    .wide-input {
+        width: 615px;
+    }
+}
+
+@media (min-width: 2561px) {
+    .container {
+        max-width: 80%;
+    }
+
+    .table-container {
+        max-width: 100%;
+        font-size: 1.2rem;
+        overflow-x: auto;
+    }
+
+    .form-container {
+        gap: 0.5rem; /* Further reduced gap for alignment */
+    }
+
+    .small-input,
+    .large-input {
+        padding: 10px; /* Reduce padding inside input boxes */
+        width: calc((100% - 1rem) / 5); /* Adjust width for proper alignment */
+        margin-right: 1px; /* Ensure small gap between boxes */
+        min-width: 200px; /* Maintain a minimum width */
+        box-sizing: border-box; /* Include padding and border in width */
+    }
+
+    .wide-input {
+        width: 280px;
+    }
+}
