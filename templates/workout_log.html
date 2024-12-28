@@ -1,0 +1,334 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid px-4">
+    <div class="page-header text-center mb-4">
+        <h1>{{ page_title }}</h1>
+        <div class="header-underline"></div>
+    </div>
+
+    <div class="workout-log-frame">
+        <div class="table-responsive">
+            <table class="table table-striped workout-log-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th class="planned-column">Routine</th>
+                        <th class="planned-column">Exercise</th>
+                        <th class="planned-column">Planned Sets</th>
+                        <th class="planned-column">Planned Min Reps</th>
+                        <th class="planned-column">Planned Max Reps</th>
+                        <th class="planned-column">Planned RIR</th>
+                        <th class="planned-column">Planned RPE</th>
+                        <th class="planned-column">Planned Weight</th>
+                        <th class="scored-column editable">Scored Min Reps</th>
+                        <th class="scored-column editable">Scored Max Reps</th>
+                        <th class="scored-column editable">Scored RIR</th>
+                        <th class="scored-column editable">Scored RPE</th>
+                        <th class="scored-column editable">Scored Weight</th>
+                        <th class="highlight-column">Last Progression</th>
+                        <th class="highlight-column">Progressive Overload</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for log in workout_logs %}
+                    <tr data-log-id="{{ log.id }}">
+                        <td>{{ loop.index }}</td>
+                        <td class="planned-column">{{ log.routine }}</td>
+                        <td class="planned-column">{{ log.exercise }}</td>
+                        <td class="planned-column">{{ log.planned_sets }}</td>
+                        <td class="planned-column" data-field="planned_min_reps">{{ log.planned_min_reps }}</td>
+                        <td class="planned-column" data-field="planned_max_reps">{{ log.planned_max_reps }}</td>
+                        <td class="planned-column" data-field="planned_rir">{{ log.planned_rir }}</td>
+                        <td class="planned-column" data-field="planned_rpe">{{ log.planned_rpe }}</td>
+                        <td class="planned-column" data-field="planned_weight">{{ log.planned_weight }}</td>
+                        <td class="scored-column editable" data-field="scored_min_reps">
+                            <input type="number" 
+                                   class="editable-input number-input" 
+                                   value="{{ log.scored_min_reps }}"
+                                   onchange="updateScoredValue('{{ log.id }}', 'scored_min_reps', this.value)"
+                                   style="display: none;">
+                            <span class="editable-text">{{ log.scored_min_reps or 'Click to set' }}</span>
+                        </td>
+                        <td class="scored-column editable" data-field="scored_max_reps">
+                            <input type="number" 
+                                   class="editable-input number-input" 
+                                   value="{{ log.scored_max_reps }}"
+                                   onchange="updateScoredValue('{{ log.id }}', 'scored_max_reps', this.value)"
+                                   style="display: none;">
+                            <span class="editable-text">{{ log.scored_max_reps or 'Click to set' }}</span>
+                        </td>
+                        <td class="scored-column editable" data-field="scored_rir">
+                            <input type="number" 
+                                   class="editable-input number-input" 
+                                   value="{{ log.scored_rir }}"
+                                   onchange="updateScoredValue('{{ log.id }}', 'scored_rir', this.value)"
+                                   style="display: none;">
+                            <span class="editable-text">{{ log.scored_rir or 'Click to set' }}</span>
+                        </td>
+                        <td class="scored-column editable" data-field="scored_rpe">
+                            <input type="number" 
+                                   class="editable-input number-input" 
+                                   value="{{ log.scored_rpe }}"
+                                   step="0.1"
+                                   min="1"
+                                   max="10"
+                                   onchange="updateScoredValue('{{ log.id }}', 'scored_rpe', this.value)"
+                                   style="display: none;">
+                            <span class="editable-text">{{ log.scored_rpe or 'Click to set' }}</span>
+                        </td>
+                        <td class="scored-column editable" data-field="scored_weight">
+                            <input type="number" 
+                                   class="editable-input number-input" 
+                                   value="{{ log.scored_weight }}"
+                                   step="0.5"
+                                   onchange="updateScoredValue('{{ log.id }}', 'scored_weight', this.value)"
+                                   style="display: none;">
+                            <span class="editable-text">{{ log.scored_weight or 'Click to set' }}</span>
+                        </td>
+                        <td class="highlight-column editable">
+                            <input type="date" 
+                                   class="editable-input date-input" 
+                                   value="{{ log.last_progression_date }}"
+                                   onchange="updateProgressionDate('{{ log.id }}', this.value)"
+                                   style="display: none;">
+                            <span class="editable-text">{{ log.last_progression_date or 'Click to set date' }}</span>
+                        </td>
+                        <td class="highlight-column">
+                            {% set is_progressive = 
+                                (log.scored_rir is not none and log.planned_rir is not none and log.scored_rir < log.planned_rir) or
+                                (log.scored_rpe is not none and log.planned_rpe is not none and log.scored_rpe > log.planned_rpe) or
+                                (log.scored_min_reps is not none and log.planned_min_reps is not none and log.scored_min_reps > log.planned_min_reps) or
+                                (log.scored_max_reps is not none and log.planned_max_reps is not none and log.scored_max_reps > log.planned_max_reps) or
+                                (log.scored_weight is not none and log.planned_weight is not none and log.scored_weight > log.planned_weight)
+                            %}
+                            <span class="badge {{ 'bg-success' if is_progressive else 'bg-warning' }}">
+                                {{ 'Achieved' if is_progressive else 'Pending' }}
+                            </span>
+                        </td>
+                        <td>
+                            <button class="btn btn-sm btn-danger" onclick="deleteLogEntry('{{ log.id }}')">
+                                <i class="fas fa-trash"></i> Remove
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Notification Section -->
+<div aria-live="polite" aria-atomic="true" class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body" id="toast-body">
+                <!-- Toast message will be inserted here -->
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+async function deleteLogEntry(logId) {
+    // Use toast for confirmation
+    if (!confirm('Are you sure you want to delete this exercise?')) return;
+
+    try {
+        const response = await fetch('/delete_workout_log', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ id: logId })
+        });
+
+        if (response.ok) {
+            // Remove the row from the table
+            const row = document.querySelector(`tr[data-log-id="${logId}"]`);
+            if (row) {
+                row.remove();
+                showToast('Exercise deleted successfully');
+            }
+        } else {
+            throw new Error('Failed to delete exercise');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        showToast('Failed to delete exercise', true);
+    }
+}
+
+// Toast notification function
+function showToast(message, isError = false) {
+    const toast = document.getElementById('liveToast');
+    const toastBody = document.getElementById('toast-body');
+    
+    if (isError) {
+        toast.classList.remove('bg-success');
+        toast.classList.add('bg-danger');
+    } else {
+        toast.classList.remove('bg-danger');
+        toast.classList.add('bg-success');
+    }
+    
+    toastBody.textContent = message;
+    const bsToast = new bootstrap.Toast(toast);
+    bsToast.show();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Make cells editable
+    const editableCells = document.querySelectorAll('.editable');
+    editableCells.forEach(cell => {
+        cell.addEventListener('click', function() {
+            // Prevent multiple inputs in the same cell
+            if (this.querySelector('input')) return;
+            
+            const currentValue = this.textContent.trim();
+            const field = this.dataset.field;
+            const logId = this.closest('tr').dataset.logId;
+            
+            if (field === 'last_progression_date') {
+                // Create date input
+                const input = document.createElement('input');
+                input.type = 'date';
+                input.value = currentValue !== 'Click to add' ? currentValue : '';
+                input.className = 'editable-input';
+                setupEditableInput(this, input, logId, field);
+            } else {
+                // Create number input
+                const input = document.createElement('input');
+                input.type = 'number';
+                input.value = currentValue !== 'Click to add' ? currentValue : '';
+                input.step = field.includes('weight') ? '0.5' : '1';
+                input.className = 'editable-input';
+                setupEditableInput(this, input, logId, field);
+            }
+        });
+    });
+
+    // Initial color update for all rows
+    document.querySelectorAll('#workout-log-table-body tr').forEach(updateRowColor);
+});
+
+function setupEditableInput(cell, input, logId, field) {
+    const originalContent = cell.textContent;
+    const originalHeight = cell.offsetHeight;
+    input.style.height = originalHeight + 'px'; // Match cell height
+    cell.appendChild(input);
+    input.focus();
+
+    // Add click event listener to prevent event bubbling
+    input.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+
+    input.addEventListener('blur', async function() {
+        try {
+            const newValue = this.value;
+            if (newValue) {
+                const response = await fetch('/update_workout_log', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        id: logId,
+                        updates: { [field]: newValue }
+                    })
+                });
+
+                if (response.ok) {
+                    // Format date if it's a date field
+                    if (field === 'last_progression_date') {
+                        const date = new Date(newValue);
+                        cell.textContent = date.toLocaleDateString('en-GB'); // DD-MM-YYYY format
+                    } else {
+                        cell.textContent = newValue;
+                    }
+                    updateRowColor(cell.closest('tr'));
+                } else {
+                    throw new Error('Failed to update');
+                }
+            } else {
+                cell.textContent = originalContent;
+            }
+        } catch (error) {
+            console.error('Error updating cell:', error);
+            cell.textContent = originalContent;
+        }
+    });
+
+    input.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            this.blur();
+        }
+    });
+}
+
+// Add this function to check performance and update row color
+function updateRowColor(row) {
+    // Get all the cells we need
+    const cells = {
+        plannedMinReps: row.cells[4],
+        plannedMaxReps: row.cells[5],
+        plannedWeight: row.cells[7],
+        scoredMinReps: row.cells[8],
+        scoredMaxReps: row.cells[9],
+        scoredWeight: row.cells[10],
+        progressStatus: row.cells[12]  // New progress status cell
+    };
+
+    // Get the values
+    const values = {
+        plannedMinReps: parseInt(cells.plannedMinReps.textContent),
+        plannedMaxReps: parseInt(cells.plannedMaxReps.textContent),
+        plannedWeight: parseFloat(cells.plannedWeight.textContent),
+        scoredMinReps: parseInt(cells.scoredMinReps.textContent),
+        scoredMaxReps: parseInt(cells.scoredMaxReps.textContent),
+        scoredWeight: parseFloat(cells.scoredWeight.textContent)
+    };
+
+    console.log('Planned values:', { 
+        plannedMinReps: values.plannedMinReps, 
+        plannedMaxReps: values.plannedMaxReps, 
+        plannedWeight: values.plannedWeight 
+    });
+    console.log('Scored values:', { 
+        scoredMinReps: values.scoredMinReps, 
+        scoredMaxReps: values.scoredMaxReps, 
+        scoredWeight: values.scoredWeight 
+    });
+
+    // Check if we have all the scored values and they're not "Click to add"
+    if (!isNaN(values.scoredMinReps) && 
+        !isNaN(values.scoredMaxReps) && 
+        !isNaN(values.scoredWeight) &&
+        cells.scoredMinReps.textContent !== 'Click to add' &&
+        cells.scoredMaxReps.textContent !== 'Click to add' &&
+        cells.scoredWeight.textContent !== 'Click to add') {
+
+        // Check if ANY scored value is lower than planned
+        if (values.scoredMinReps < values.plannedMinReps || 
+            values.scoredMaxReps < values.plannedMaxReps || 
+            values.scoredWeight < values.plannedWeight) {
+            cells.progressStatus.innerHTML = '<span class="badge">Not Achieved</span>';
+            row.classList.add('progress-failure');
+            row.classList.remove('progress-success', 'progress-pending');
+        } else {
+            cells.progressStatus.innerHTML = '<span class="badge">Achieved</span>';
+            row.classList.add('progress-success');
+            row.classList.remove('progress-failure', 'progress-pending');
+        }
+    } else {
+        cells.progressStatus.innerHTML = '<span class="badge">Pending</span>';
+        row.classList.add('progress-pending');
+        row.classList.remove('progress-success', 'progress-failure');
+    }
+}
+</script>
+{% endblock %} 
